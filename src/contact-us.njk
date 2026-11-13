@@ -1,0 +1,85 @@
+---
+layout: page.njk
+permalink: contact-us.html
+title: Contact Us - Key West Pro Guides
+description: "To contact us by phone: Local 305-747-4650 To contact us by mail: Key West Pro Guides 5130 U.S. Highway 1 Key West, FL. 33040 To contact us via e-mail: info@keywestproguides.com To contact us via Facebook: www.facebook.com/keywestproguides To contact us in person: Our office is located at Hurricane Hole Marina 5130 U.S. Highway 1 Key West, FL. 33040"
+h1: Contact Us
+heroCls: top
+heroImg: wix/95e38a_91ab1da0072348539b99f82bc9bc5495.jpg
+heroAlt: Key West Pro Guides boat at Hurricane Hole Marina
+navKey: Contact
+crumbs:
+  - label: Contact Us
+hideCta: true
+fishing: [Wreck, Reef, Offshore, Backcountry, Night Tarpon]
+species: [Snapper, Grouper, Tarpon, Permit, Dolphin, Cobia, Shark, Tuna, Kingfish, Sailfish, Wahoo, Barracuda, Other (specify in comments)]
+lengths: ["AM Half (8am-12pm)", "PM Half (1pm-5pm)", "5/8 Day (5 Hrs)", "3/4 Day (6 Hrs)", "Full Day (8 Hrs)", "Undecided"]
+callTimes: [AM, Afternoon, Evening, Other (specify in comments)]
+---
+<section class="sec">
+  <div class="wrap two" style="align-items:start">
+    <div>
+      <h2><a href="{{ site.mapsUrl }}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">Key West Pro Guides</a></h2>
+      <h3>Contact Us:</h3>
+      <p><a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">5130 Overseas Hwy, Key West,<br>FL 33040, United States</a></p>
+      <p><a href="{{ site.phoneHref }}"><strong>{{ site.phoneDisplay }}</strong></a></p>
+      <h3>Check Us Out:</h3>
+      <p><a href="mailto:{{ site.email }}">Email Us</a></p>
+      <a class="fb" style="border-color:var(--navy)" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Key West Pro Guides on Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#040A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    </div>
+    <div>
+      <iframe class="map" title="Map: Key West Pro Guides at Hurricane Hole Marina, 5130 Overseas Hwy, Key West" data-src="{{ site.mapEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p style="font-size:16px;margin-top:8px">Our office is at {{ site.address.marina }}. <a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Open in Google Maps</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="narrow">
+    <p class="note">Please Note: If you are planning on fishing within the next 10 days, please call us at <a href="{{ site.reservationsPhoneHref }}">{{ site.reservationsPhone }}</a>, as we are usually almost sold out within that period.</p>
+    <p style="margin-top:20px">*If you do not see a same-day response from us in your e-mail, please check your Spam folder.</p>
+    <p>If you are ready to reserve your trip or would simply like to discuss your options for a great day on the water, please call us anytime at <a href="{{ site.reservationsPhoneHref }}">{{ site.reservationsPhone }}</a>. If you’re not quite ready to book and would like more information, please fill out this quick form below and we will respond immediately.</p>
+
+    <form class="form" name="contact" method="POST" action="/confirmation" data-netlify="true" netlify-honeypot="company" aria-label="Website Contact Form">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hp"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+      <fieldset>
+        <legend>Contact Information</legend>
+        <div class="f2">
+          <div><label for="f-name">Name</label><input id="f-name" type="text" name="name" autocomplete="name" required></div>
+          <div><label for="f-phone">Phone Number</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
+          <div><label for="f-email">Email</label><input id="f-email" type="email" name="email" autocomplete="email" required></div>
+          <div><label for="f-email2">Confirm Email</label><input id="f-email2" type="email" name="confirm-email" autocomplete="email" required></div>
+        </div>
+        <p class="q" id="q-call">Best time to call:</p>
+        <div class="checks" role="group" aria-labelledby="q-call">{% for o in callTimes %}<label><input type="checkbox" name="best-time-to-call" value="{{ o }}"> {{ o }}</label>{% endfor %}</div>
+      </fieldset>
+      <fieldset>
+        <legend>Trip Information</legend>
+        <label for="f-date">Date of Trip (for additional days please place in the comments section):</label>
+        <input id="f-date" type="date" name="trip-date">
+        <p class="q" id="q-len">Trip Length</p>
+        <div class="checks" role="group" aria-labelledby="q-len">{% for o in lengths %}<label><input type="checkbox" name="trip-length" value="{{ o }}"> {{ o }}</label>{% endfor %}</div>
+        <p class="q">How many anglers in your party?</p>
+        <div class="f2">
+          <div><label for="f-adults">Adult</label><input id="f-adults" type="number" name="adults" min="0" max="40" value="0"></div>
+          <div><label for="f-kids">Children (under 12)</label><input id="f-kids" type="number" name="children" min="0" max="40" value="0"></div>
+        </div>
+        <p class="q" id="q-kind">Please tell us what kind of fishing you are interested in (check all that apply)</p>
+        <div class="checks" role="group" aria-labelledby="q-kind">{% for o in fishing %}<label><input type="checkbox" name="fishing-type" value="{{ o }}"> {{ o }}</label>{% endfor %}</div>
+        <p class="q" id="q-sp">What species would you like to fish for? (list all that interest you)</p>
+        <div class="checks" role="group" aria-labelledby="q-sp">{% for o in species %}<label><input type="checkbox" name="species" value="{{ o }}"> {{ o }}</label>{% endfor %}</div>
+      </fieldset>
+      <fieldset>
+        <legend>Comments</legend>
+        <label for="f-comments" class="sr">Comments</label>
+        <textarea id="f-comments" name="comments" rows="5" placeholder="Add your comments"></textarea>
+      </fieldset>
+      <p class="consent">By submitting this form, you agree that Key West Pro Guides may contact you by phone, text message or email about your inquiry using the information you provide. Message and data rates may apply. Reply STOP to opt out of texts at any time.</p>
+      <p><button class="btn" type="submit">Submit</button></p>
+    </form>
+  </div>
+</section>
+<script>
+(function(){var f=document.querySelector('form[name=contact]');if(!f)return;f.addEventListener('submit',function(e){var a=f.email.value.trim().toLowerCase(),b=f['confirm-email'].value.trim().toLowerCase();if(a!==b){e.preventDefault();f['confirm-email'].setCustomValidity('The two email addresses do not match.');f['confirm-email'].reportValidity();}});f['confirm-email'].addEventListener('input',function(){this.setCustomValidity('');});})();
+</script>

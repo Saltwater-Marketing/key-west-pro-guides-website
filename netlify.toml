@@ -1,0 +1,97 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Pages are built as page.html and served at /page (the same addresses the Wix site used).
+# Netlify's pretty URLs also send /page.html to /page.
+
+# ---------------------------------------------------------------
+# 301s exported from the Wix redirect manager (set up in Sept 2025)
+# ---------------------------------------------------------------
+[[redirects]]
+  from = "/reservation.cfm"
+  to = "/contact-us"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/capt_veach.shtml"
+  to = "/our-guides/captain-tyson-veach"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/archived_reports"
+  to = "/fishing-reports"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fishing_report.shtml"
+  to = "/fishing-reports"
+  status = 301
+  force = true
+
+# ---------------------------------------------------------------
+# Wix blog-only addresses (category, tag, paging and feed pages)
+# ---------------------------------------------------------------
+[[redirects]]
+  from = "/fishing-reports/categories/fishing-info"
+  to = "/fishing-reports#fishing-talk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fishing-reports/categories/fishing-reports"
+  to = "/fishing-reports#reports"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fishing-reports/categories/*"
+  to = "/fishing-reports"
+  status = 301
+
+[[redirects]]
+  from = "/fishing-reports/page/*"
+  to = "/fishing-reports"
+  status = 301
+
+[[redirects]]
+  from = "/fishing-reports/hashtags/*"
+  to = "/fishing-reports"
+  status = 301
+
+[[redirects]]
+  from = "/blog-feed.xml"
+  to = "/fishing-reports"
+  status = 301
+
+[[redirects]]
+  from = "/blog"
+  to = "/fishing-reports"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/fishing-reports"
+  status = 301
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

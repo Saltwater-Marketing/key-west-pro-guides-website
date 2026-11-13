@@ -1,0 +1,26 @@
+---
+layout: page.njk
+permalink: our-trips.html
+title: Our Trips - Key West Pro Guides
+description: "Backcountry Fishing Wreck & Reef Fishing Offshore Fishing Tarpon Fishing Shark Fishing Marquesas Atoll Fishing Gulf Wreck Fishing Gulf Tower Fishing ‘Way West’ Fishing"
+h1: Our Trips
+heroCls: top
+heroImg: wix/95e38a_6a214e8d26744415ad91036e4f4ad434.jpg
+heroAlt: Anglers holding an amberjack on a light tackle trip
+ogImage: wix/95e38a_6a214e8d26744415ad91036e4f4ad434.jpg
+crumbs:
+  - label: Our Trips
+---
+<section class="sec tint">
+  <div class="wrap">
+    <div class="g4">
+      {% for t in (trips | inList("slug", tripinfo.homeOrder)) %}
+      <a class="card" href="{{ t.url }}">
+        {% img t.card.img, t.card.alt, "(max-width: 700px) 50vw, (max-width: 1023px) 50vw, 300px", "" %}
+        <span class="in"><h2 style="font-size:22px;margin:0">{{ t.name }}</h2><p>{{ t.card.blurb }}</p><span class="more">See the trip →</span></span>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="center" style="margin:32px 0 0">Also see <a href="/our-trips/tarpon-fishing"><strong>Tarpon Fishing</strong></a> and <a href="/fishing-info/rates"><strong>all rates</strong></a>.</p>
+  </div>
+</section>

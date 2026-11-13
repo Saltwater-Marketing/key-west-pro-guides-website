@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "backcountry-fishing",
+    "url": "/our-trips/backcountry-fishing",
+    "name": "Backcountry Fishing",
+    "navLabel": "Backcountry Fishing",
+    "h1": "Backcountry Fishing in Key West",
+    "card": { "img": "cards/backcountry.jpg", "alt": "Angler holding a jack crevalle in the Key West backcountry", "blurb": "The quintessential Key West trip, exploring the islands and shallow waters" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eee197255757e0e50e62d9",
+    "boatType": "backcountry",
+    "rates": [
+      { "t": "1/2 Day", "d": "4 hours", "p": 800 },
+      { "t": "5/8 Day", "d": "5 hours", "p": 850 },
+      { "t": "3/4 Day", "d": "6 hours", "p": 950 },
+      { "t": "Full Day", "d": "8 hours", "p": 1200 },
+      { "t": "Full Day Marquesas", "d": "8 hours", "p": 1200 },
+      { "t": "Split Tarpon", "d": "8 hours, 6 to 10am and 5 to 9pm", "p": 1400 },
+      { "t": "Sunset Tarpon", "d": "4 hours, 5 to 9pm", "p": 750 }
+    ],
+    "guides": ["austin-lawrence", "justin-scharaldi", "ryan-veach"],
+    "faqs": [
+      { "q": "How far is the run to the backcountry?", "a": "The typical run to the better spots is 15 to 20 minutes, depending on the target species." },
+      { "q": "Is the backcountry good for first-time anglers and kids?" },
+      { "q": "Will I get seasick?" },
+      { "q": "How many people can come?" }
+    ]
+  },
+  {
+    "slug": "wreck-fishing",
+    "url": "/our-trips/wreck-fishing",
+    "name": "Wreck & Reef Fishing",
+    "navLabel": "Wreck & Reef",
+    "h1": "Wreck & Reef Fishing in Key West",
+    "card": { "img": "cards/wreck.jpg", "alt": "Two anglers holding an amberjack on a wreck trip", "blurb": "If you have but one day to fish, this is your “can’t miss trip”" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eee89fb47f43f2bb4b4746",
+    "boatType": "light",
+    "rates": [
+      { "t": "1/2 Day", "d": "4 hours", "p": 1100 },
+      { "t": "5/8 Day", "d": "5 hours", "p": 1250 },
+      { "t": "3/4 Day", "d": "6 hours", "p": 1400 },
+      { "t": "Full Day", "d": "8 hours", "p": 1700 },
+      { "t": "Mutton Spawn Trip", "d": "5 hours, 3 to 8pm, April to June", "p": 1200 }
+    ]
+  },
+  {
+    "slug": "offshore-fishing",
+    "url": "/our-trips/offshore-fishing",
+    "name": "Offshore Fishing",
+    "navLabel": "Offshore Fishing",
+    "h1": "Offshore Fishing in Key West",
+    "card": { "img": "cards/offshore.jpg", "alt": "Family holding a mahi mahi caught offshore of Key West", "blurb": "Offshore fishing is closer than you think with world class trolling and deep drops" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eeea90848674c6b47881f3",
+    "boatType": "light",
+    "rates": [
+      { "t": "1/2 Day", "d": "4 hours", "p": 1100 },
+      { "t": "5/8 Day", "d": "5 hours", "p": 1250 },
+      { "t": "3/4 Day", "d": "6 hours", "p": 1400 },
+      { "t": "Full Day", "d": "8 hours", "p": 1700 },
+      { "t": "Mutton Spawn Trip", "d": "5 hours, 3 to 8pm, April to June", "p": 1200 }
+    ]
+  },
+  {
+    "slug": "shark-fishing",
+    "url": "/our-trips/shark-fishing",
+    "name": "Shark Fishing",
+    "navLabel": "Shark Fishing",
+    "h1": "Shark Fishing in Key West",
+    "card": { "img": "cards/shark.jpg", "alt": "Shark beside the boat on a Shark Challenge trip", "blurb": "Meet up with one of nature's top predators on a Shark Challenge trip" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eeebd6848674c6b47881fd",
+    "boatType": "backcountry",
+    "rates": [
+      { "t": "1/2 Day", "d": "4 hours", "p": 750 },
+      { "t": "5/8 Day", "d": "5 hours", "p": 800 },
+      { "t": "3/4 Day", "d": "6 hours", "p": 900 },
+      { "t": "Full Day", "d": "8 hours", "p": 1100 },
+      { "t": "Full Day Marquesas", "d": "8 hours", "p": 1200 }
+    ]
+  },
+  {
+    "slug": "tarpon-fishing",
+    "url": "/our-trips/tarpon-fishing",
+    "name": "Tarpon Fishing",
+    "navLabel": "Tarpon Fishing",
+    "h1": "Tarpon Fishing in Key West",
+    "card": { "img": "wix/95e38a_2d907f3c751c48b0bf5175afa7f1eb99.jpg", "alt": "Tarpon fishing in Key West", "blurb": "" },
+    "homeCard": false,
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eee667a9b7b8a62c6b0afd",
+    "boatType": "backcountry",
+    "season": "March 1 to July 31",
+    "rates": [
+      { "t": "Split Tarpon", "d": "8 hours, 6 to 10am and 5 to 9pm", "p": 1400 },
+      { "t": "Sunset Tarpon", "d": "4 hours, 5 to 9pm", "p": 750 }
+    ],
+    "guides": ["austin-lawrence"],
+    "faqsFromPage": true
+  },
+  {
+    "slug": "marquesas-atoll-fishing",
+    "url": "/our-trips/marquesas-atoll-fishing",
+    "name": "Marquesas Atoll Fishing",
+    "navLabel": "Marquesas Atoll Fishing",
+    "h1": "Marquesas Atoll Fishing from Key West",
+    "card": { "img": "cards/marquesas.jpg", "alt": "Aerial view of the Marquesas atoll west of Key West", "blurb": "Legendary light tackle fishing in the most remote region of the Keys" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eee791b47f43f2bb4b473f",
+    "boatType": "backcountry",
+    "rates": [
+      { "t": "Full Day Marquesas", "d": "8 hours", "p": 1200 }
+    ]
+  },
+  {
+    "slug": "group-fishing",
+    "url": "/our-trips/group-fishing",
+    "name": "Group Fishing",
+    "navLabel": "Group Fishing",
+    "h1": "Key West Group & Corporate Fishing Charters",
+    "card": { "img": "cards/group.jpg", "alt": "Group of anglers holding blackfin tuna on the boat", "blurb": "From bachelor parties to corporate retreats, we make group fishing in Key West easy with multiple boats and pro captains" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides",
+    "callToBook": true
+  },
+  {
+    "slug": "family-fishing",
+    "url": "/our-trips/family-fishing",
+    "name": "Family Fishing",
+    "navLabel": "Family Fishing",
+    "h1": "Family Fishing in Key West",
+    "card": { "img": "cards/family.jpg", "alt": "Family with young kids in life jackets aboard the boat", "blurb": "Taking the kids on a fishing trip can truly be an experience of a lifetime for them" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/trips/66eeec91848674c6b4788205",
+    "boatType": "backcountry",
+    "rates": [
+      { "t": "1/2 Day", "d": "4 hours", "p": 750 },
+      { "t": "5/8 Day", "d": "5 hours", "p": 800 }
+    ]
+  },
+  {
+    "slug": "specialty-trips",
+    "url": "/our-trips/specialty-trips",
+    "name": "Specialty Trips",
+    "navLabel": "Specialty Trips",
+    "h1": "Specialty Fishing Trips from Key West",
+    "card": { "img": "cards/specialty.jpg", "alt": "Two anglers holding permit caught on a specialty trip", "blurb": "Want to do something \"off the menu\"? Ask us about our specialty trips" },
+    "book": "https://book.vallypro.com/p/key-west-pro-guides/folders/6ad1605a038885f4f2b691de",
+    "boatType": "light",
+    "season": "December 1 to July 31",
+    "rates": [
+      { "t": "Gulf Wreck Fishing", "d": "Full day, 8 hours", "p": 2000 },
+      { "t": "Gulf Tower Fishing", "d": "Full day, 8 hours", "p": 2000 },
+      { "t": "Gulf Shrimp Boat Fishing", "d": "Full day, 8 hours", "p": 2000 },
+      { "t": "Way West Fishing", "d": "Full day, 8 hours", "p": 2300 }
+    ]
+  }
+]

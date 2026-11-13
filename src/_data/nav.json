@@ -1,0 +1,23 @@
+[
+  { "label": "Home", "url": "/" },
+  { "label": "Our Trips", "url": "/our-trips", "children": "trips" },
+  { "label": "Our Guides", "url": "/our-guides", "children": "captains" },
+  { "label": "Rates", "url": "/fishing-info/rates" },
+  { "label": "Fishing Reports", "url": "/fishing-reports" },
+  { "label": "Reviews", "url": "/fishing-info/testimonials" },
+  {
+    "label": "Fishing Info",
+    "url": "/fishing-info",
+    "items": [
+      { "label": "Fishing Info", "url": "/fishing-info" },
+      { "label": "FAQ", "url": "/fishing-info/faq" },
+      { "label": "Fish Calendar", "url": "/fishing-info/fish-calendar" },
+      { "label": "Species", "url": "/fishing-info/species" },
+      { "label": "Photo Gallery", "url": "/fishing-info/photo-gallery" },
+      { "label": "Videos", "url": "/fishing-info/videos" },
+      { "label": "Glossary", "url": "/fishing-info/glossary" },
+      { "label": "Links", "url": "/fishing-info/links" }
+    ]
+  },
+  { "label": "Contact", "url": "/contact-us" }
+]

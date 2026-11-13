@@ -1,0 +1,44 @@
+{
+  "name": "Key West Pro Guides",
+  "url": "https://www.keywestproguides.com",
+  "phone": "(305) 747-4650",
+  "phoneDisplay": "305-747-4650",
+  "phoneHref": "tel:3057474650",
+  "reservationsPhone": "305-296-6602",
+  "reservationsPhoneHref": "tel:3052966602",
+  "email": "info@keywestproguides.com",
+  "address": {
+    "street": "5130 Overseas Hwy",
+    "city": "Key West",
+    "region": "FL",
+    "zip": "33040",
+    "country": "US",
+    "marina": "Hurricane Hole Marina"
+  },
+  "mapsUrl": "https://maps.app.goo.gl/rCRdjNSH1Y65P7qd7",
+  "mapEmbed": "https://maps.google.com/maps?q=Hurricane%20Hole%20Marina%2C%205130%20Overseas%20Hwy%2C%20Key%20West%2C%20FL%2033040&z=15&output=embed",
+  "booking": {
+    "label": "Book Now",
+    "url": "https://book.vallypro.com/p/key-west-pro-guides",
+    "tripBase": "https://book.vallypro.com/p/key-west-pro-guides/trips/"
+  },
+  "rating": {
+    "value": "4.9",
+    "count": "1,700+",
+    "source": "Tripadvisor",
+    "since": "1998",
+    "captains": "9",
+    "facebookFollowers": "12K",
+    "line": "4.9 on Tripadvisor · 1,700+ reviews · Fishing Key West since 1998",
+    "lineShort": "4.9 on Tripadvisor · 1,700+ reviews"
+  },
+  "tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g34345-d1832878-Reviews-Key_West_Pro_Guides-Key_West_Florida_Keys_Florida.html",
+  "social": {
+    "facebook": "https://www.facebook.com/keywestproguides"
+  },
+  "gtm": "GTM-NQP6TTK",
+  "credit": {
+    "label": "Website by Saltwater Marketing",
+    "url": "https://www.saltwatermarketing.net/"
+  }
+}

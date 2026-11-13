@@ -1,0 +1,96 @@
+---
+layout: base.njk
+permalink: index.html
+title: Key West Fishing Charters - Key West Pro Guides
+description: Key West Pro Guides Offers Private Guided Fishing Trips & Fishing Charters For Deep Sea Offshore & Near-Shore Fishing Located In Key West, Florida.Since 1998 the team at Key West Pro Guides provides private charter fishing trips for inshore, nearshore & offshore fishing with full-time, dedicated captains.
+isHome: true
+ogImage: home/banner-desktop.jpg
+---
+<section class="banner" aria-label="Banner">
+  {% banner "home/banner-desktop.jpg", "home/banner-phone.jpg", "Key West Pro Guides anglers with a permit, a cobia and a barracuda, and the team's River Monsters feature on Animal Planet, Season 8 Episode 3, RazorHead" %}
+  <p class="feat">Proudly featured on River Monsters, Animal Planet</p>
+</section>
+
+<section class="intro">
+  <div class="narrow">
+    <h1>Key West Fishing Charters with Key West Pro Guides</h1>
+    <p>The largest and finest equipped professional fishing guide team ever in Key West. Our renowned guides are full time, “owner-operator” fishing professionals with safety and your enjoyable experience on the water as their top priorities. Since 1998, our proven history of success and superior customer service has set the standard in Key West.</p>
+    <p style="margin-bottom:28px">Give me a call or drop us an email, I’d love to personally talk about your upcoming adventure on the water. <strong class="sig">Capt. Paul</strong></p>
+    <a class="btn-line" href="#trips">Explore Charters</a>
+    <div class="rule"></div>
+  </div>
+</section>
+
+<section class="sec tint" id="trips">
+  <div class="wrap">
+    <p class="eyebrow center">Our Trips</p>
+    <h2 class="center" style="margin-bottom:40px">Choose Your Key West Fishing Trip</h2>
+    <div class="g4">
+      {% for t in (trips | inList("slug", tripinfo.homeOrder)) %}
+      <a class="card" href="{{ t.url }}">
+        {% img t.card.img, t.card.alt, "(max-width: 700px) 50vw, (max-width: 1023px) 50vw, 300px", "" %}
+        <span class="in"><h3>{{ t.name }}</h3><p>{{ t.card.blurb }}</p><span class="more">See the trip →</span></span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="cta">
+      <a class="btn" href="{{ site.booking.url }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+      <p class="or">or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    </div>
+  </div>
+</section>
+
+{% include "reviews-block.njk" %}
+
+<section class="sec dark">
+  <div class="wrap two">
+    <div>
+      <h2>The Ultimate Key West Experience</h2>
+      <p>People visit Key West for all kinds of reasons. But no trip to Key West is complete without getting out on the water and enjoying what we believe are the most unique fishing opportunities in the world.</p>
+      <p>If you're new to fishing, Key West is a great opportunity to get introduced to the sport without long boat rides or harsh conditions.</p>
+      <p>We can explore the calm, protected waters of the backcountry or even reef fish still within view of shore.</p>
+      <p>Or if you're an experienced fisherman and looking for a challenge, we can tailor an experience ranging from sight-casting for tarpon to wrestling with sharks or bottom fishing for big reef dwellers offshore.</p>
+      <p style="margin:0">No matter what kind of experience you want to enjoy, we can make it happen!</p>
+    </div>
+    {% img "home/ultimate-shark.jpg", "Two anglers on the boat holding a shark", "(max-width: 1023px) 100vw, 580px", "photo r45" %}
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:40px">
+  <div class="wrap">
+    <h2>Fishing Talk</h2>
+    <div class="g3" style="margin-top:28px">
+      {% for p in (collections.posts | bySlugs(["backcountry-tarpon-fishing-in-key-west", "common-mistakes-when-tarpon-fishing-in-key-west", "where-to-fish-for-tarpon-in-key-west"])) %}
+      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 100vw, 400px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.data.excerpt }}</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <h2 style="margin-bottom:6px">The Key West Pro Guides Team Fishing Report</h2>
+    <p style="font-size:20px;font-weight:700;color:var(--blue);margin-bottom:28px">What Spot? – What Bait? – How Deep? – How Big!!</p>
+    <div class="g3">
+      {% for p in (collections.posts | byKeyData("category", "Fishing Report") | limit(2)) %}
+      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 100vw, 400px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.data.excerpt }}</p></a>
+      {% endfor %}
+      <div class="wx">
+        <h3>Key West Weather</h3>
+        <div id="wx" data-src="https://weatherwidget.io/js/widget.min.js">
+          <a class="weatherwidget-io" href="https://forecast7.com/en/24d56n81d78/key-west/?unit=us" data-label_1="KEY WEST" data-label_2="WEATHER" data-theme="original" target="_blank" rel="noopener">Key West weather forecast</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin:28px 0 0"><a href="/fishing-reports"><strong>All fishing reports</strong></a></p>
+  </div>
+</section>
+
+<section class="sponsors">
+  <div class="wrap">
+    <h2 style="font-size:22px;margin-bottom:18px">Our Faithful &amp; Generous Sponsors</h2>
+    <div class="row">
+      {% for s in sponsors %}{% img s.src, s.name, "120px", "" %}{% endfor %}
+    </div>
+  </div>
+</section>

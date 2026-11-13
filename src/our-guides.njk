@@ -1,0 +1,26 @@
+---
+layout: page.njk
+permalink: our-guides.html
+title: Our Guides - Key West Pro Guides
+description: Meet the Key West Pro Guides team of full-time, owner-operator fishing guides in Key West, Florida, with the boat each captain runs.
+h1: Our Guides
+heroCls: top
+heroImg: wix/95e38a_c4861f7f1e434733b913c9c2c9bd43b8.jpg
+heroAlt: Angler holding a barracuda with Key West Pro Guides
+ogImage: wix/95e38a_c4861f7f1e434733b913c9c2c9bd43b8.jpg
+crumbs:
+  - label: Our Guides
+---
+<section class="sec">
+  <div class="wrap">
+    <div class="g3">
+      {% for c in captains %}
+      <a class="gcard" href="{{ c.url }}">
+        {% set pic = c.photos[0].src if c.slug == "austin-lawrence" else c.headshot %}
+        {% img pic, c.name, "(max-width: 1023px) 100vw, 400px", "" %}
+        <span class="in"><h2>{{ c.name }}</h2><p>{{ c.boat }}</p></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

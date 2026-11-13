@@ -1,0 +1,85 @@
+---
+layout: base.njk
+pagination:
+  data: captains
+  size: 1
+  alias: c
+permalink: "our-guides/captain-{{ c.slug }}.html"
+navKey: Our Guides
+eleventyComputed:
+  title: "{{ c.title }}"
+  description: "{{ c.description }}"
+  ogImage: "{{ c.hero }}"
+  crumbs:
+    - label: Our Guides
+      url: /our-guides
+    - label: "{{ c.name }}"
+---
+<section class="pbanner">
+  {% heroimg c.hero, c.heroAlt, "100vw" %}
+  <div class="cap"><div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/our-guides">Our Guides</a> / {{ c.name }}</p>
+    <h1>{{ c.name }}, {{ c.role }}</h1>
+  </div></div>
+</section>
+
+<section class="sec">
+  <div class="wrap bio">
+    <div>
+      <p class="eyebrow">Meet your captain</p>
+      <h2>{{ c.h2 or ("About " + c.name) }}</h2>
+      {% for p in c.bio %}<p>{{ p | safe }}</p>{% endfor %}
+      {% if c.trips.length %}
+      <div class="chips">{% for t in (trips | inList("slug", c.trips)) %}<a href="{{ t.url }}">{{ t.name }}</a>{% endfor %}</div>
+      {% endif %}
+      <a class="btn" href="{{ site.booking.url }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+      <p class="or" style="font-size:16px;margin-top:12px">or call <a href="{{ site.phoneHref }}"><strong>{{ site.phone }}</strong></a> and ask for Capt. {{ c.first }}</p>
+    </div>
+    {% if c.photos[0] %}{% img c.photos[0].src, c.photos[0].alt, "(max-width: 1023px) 100vw, 540px", "photo r45" %}{% endif %}
+  </div>
+</section>
+
+{% if c.specs.length %}
+<section class="sec tint">
+  <div class="wrap two">
+    <div>
+      <h2>The Boat: {{ c.boat }}</h2>
+      <ul class="specs">{% for s in c.specs %}{% if not loop.first %}<li>{{ s }}</li>{% endif %}{% endfor %}</ul>
+    </div>
+    {% if c.photos[1] %}{% img c.photos[1].src, c.photos[1].alt, "(max-width: 1023px) 100vw, 580px", "photo r11" %}{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if c.reviews.length %}
+<section class="sec">
+  <div class="wrap">
+    <h2 class="center">What Anglers Say About Capt. {{ c.first }}</h2>
+    <div class="g3" style="margin-top:24px">
+      {% for r in c.reviews %}
+      <figure class="rev">
+        {% if r.title %}<h3>{{ r.title }}</h3>{% endif %}
+        <blockquote>{% for p in r.paras %}<p>{{ p }}</p>{% endfor %}</blockquote>
+        <figcaption>{% if r.sig %}{{ r.sig }}{% else %}<span class="ph">[Name]</span>{% endif %} · <span class="ph">[Month Year]</span> · <span class="ph">[Source]</span></figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if c.gallery.length %}
+<section class="sec{% if c.reviews.length %} tint{% endif %}">
+  <div class="wrap">
+    <h2>Gallery</h2>
+    <div class="gal">{% for g in c.gallery %}{% img g.src, g.alt, "(max-width: 700px) 50vw, 300px", "" %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+<section class="sec-sm{% if not c.reviews.length or not c.gallery.length %} tint{% endif %}">
+  <div class="wrap">
+    <h2 style="font-size:24px">Meet the Rest of the Team</h2>
+    <div class="links-row">{% for o in captains %}{% if o.slug != c.slug %}<a href="{{ o.url }}">{{ o.name }}</a>{% endif %}{% endfor %}</div>
+  </div>
+</section>

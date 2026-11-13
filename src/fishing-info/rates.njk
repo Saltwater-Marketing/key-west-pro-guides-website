@@ -1,0 +1,95 @@
+---
+layout: page.njk
+permalink: fishing-info/rates.html
+title: Key West Fishing Tours & Fishing Boat Charter Prices & Rates Florida
+description: Key West Pro Guides Offers Fishing Tours & Private Fishing Boat Trips Prices & Rates For Tarpon Fishing, Shark Fishing & Backcountry Guided Fishing Charters Key West, Florida.
+h1: Rates
+heroCls: top
+heroImg: wix/95e38a_bc319e2a592142a583c6fa08d081c49a.png
+heroAlt: Key West Pro Guides charter boat on the water
+navKey: Rates
+crumbs:
+  - label: Rates
+hideCta: true
+rateCards:
+  - title: Backcountry Guides
+    sub: 24 ft bay boats (Yellowfin, Pathfinder, Skeeter), 1 to 4 guests
+    groups:
+      - trip: backcountry-fishing
+        label: Backcountry, Marquesas & Tarpon
+      - trip: shark-fishing
+        label: Shark Fishing
+        skip: ["Full Day Marquesas"]
+      - trip: family-fishing
+        label: Family Fishing
+  - title: Light Tackle Guides
+    sub: 29 to 34 ft center consoles (Yellowfin, Conch, Contender, Andros), 1 to 4 guests
+    groups:
+      - trip: wreck-fishing
+        label: "Ultimate Action Trips: Wreck, Reef & Offshore"
+  - title: Specialty Trips
+    sub: Light tackle boats (Yellowfin, Conch, Contender), 1 to 4 guests, December to July
+    groups:
+      - trip: specialty-trips
+        label: Shrimp Boats, Gulf Wrecks, Towers & Way West
+---
+<section class="sec" style="padding-bottom:24px">
+  <div class="narrow">
+    <p>Charter boats are considered a service and are tax exempt in the state of Florida. There are a few online companies that are charging sales tax on fishing charters, simply to make more money. This is a scam that is both wrong and very illegal!! Stay away from these services that charge booking fees, service charges or surcharges. Ask them up front!</p>
+    <p>Please read first! – Apparently a few charter services have decided that instead of telling you the total cost up front for your charter, it is easier to give you a low-ball rate and hit you up with a very hefty fuel surcharge or worse yet, make you pay for all of the fuel used that day out of your pocket, in addition to their full rate!</p>
+    <p>What’s worse, is there are some guides that charge much more than we do, then have the nerve to ask for you to pay for “only the fuel we use on your trip”. Talk about a handsome profit.</p>
+    <p>Folk’s, our rates include all of the fuel necessary to run as far as we need to, to keep you on fish, no excuses. Due to high marina fuel prices, we have decided to be the first and only company to come up with a new, easier pricing system that avoids charging an additional fuel surcharge or making you pony up at the end of the day.</p>
+    <div class="icons">
+      {% img "wix/95e38a_47fe36e5ba874bb39506436a4b6c6e5b.png", "No fuel charge", "140px", "" %}
+      {% img "wix/95e38a_f18ab4ee8d7f475f96ff04c95c67add3.png", "No sales tax", "140px", "" %}
+    </div>
+    <p class="center"><strong>Our rates cover the entire cost of fuel no matter how far we must travel.</strong></p>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="narrow">
+    <h2 class="center" style="margin-bottom:4px">2026/2027 Rates</h2>
+    <p class="center" style="font-weight:700">(Effective October 1, 2026)</p>
+    <div class="note" style="font-weight:400;margin-top:24px">
+      <p style="font-weight:700">Updated Gas Prices</p>
+      <p>Folks, we are getting crushed on fuel at the dock.</p>
+      <p>Today, October 1st, gas is $7.49 and rising, that's brutal.</p>
+      <p>Weve only raised our rates some, we still need to run as far as necessary to make you happy.</p>
+      <p>Don't fall for someone who hasn't raised their rates (They won't travel as far for sure), or someone who drastically raised them (They might simply stay closer!)</p>
+      <p>For the Captains cheaper than us, are you saving $50 or $100 or wasting $700 or $1200 of your money?</p>
+      <p>Weve been doing this since 1997 and are honest and truthful with our rates.</p>
+      <p style="margin:0">We need and cherish your business and want to make new friends that love just what we do...</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    {% for card in rateCards %}
+    <div class="ratebox">
+      <h2>{{ card.title }}</h2>
+      <p class="sub">{{ card.sub }}</p>
+      {% for g in card.groups %}{% set t = trips | find("slug", g.trip) %}
+      <h3 style="font-size:20px;margin-top:{{ '8px' if loop.first else '28px' }}"><a href="{{ t.url }}">{{ g.label }}</a></h3>
+      <div class="g4">
+        {% for r in t.rates %}{% if not (g.skip and (r.t in g.skip)) %}<div class="rate"><p class="t">{{ r.t }}</p><p class="d">{{ r.d }}</p><p class="p">{{ r.p | money }}</p></div>{% endif %}{% endfor %}
+      </div>
+      {% endfor %}
+      <div class="cta" style="margin-top:28px">
+        <a class="btn" href="{{ (trips | find('slug', card.groups[0].trip)).book }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+      </div>
+    </div>
+    {% endfor %}
+    <p class="center"><strong>*Fuel Included on ALL Charters</strong></p>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="narrow">
+    <p>All rates include all necessary instruction, fuel, licenses, tackle, rods, bait and a cooler with ice and bottled water onboard.</p>
+    <p>We recommend that you make advanced reservations with us then book your hotel and travel plans. As Key West’s largest guide service, we have access to many of the best guides here in Key West, however due to our large repeat customer base and many corporate events, availability can be exhausted, please be sure to make reservations as soon as possible to ensure a boat.</p>
+    <p>*NOTE: On some vessels we are willing to take the maximum number of passengers allowed by USCG law which is 6. We do this because we do not want to leave anyone of the dock and this allows large families to enjoy the day on the water together. With this being said, we never fish 5 or 6 people at one time. This adds to much stress to the bite and will actually decrease the amount of fish caught. If you are a group with more than 4 anglers (people wanting to fish) we can easily accommodate your group on multiple boats within the Pro Guides Team and stay together as close as possible.</p>
+    <p class="center" style="margin:28px 0 0">Questions about which trip fits? Call <a href="{{ site.phoneHref }}"><strong>{{ site.phone }}</strong></a></p>
+  </div>
+</section>

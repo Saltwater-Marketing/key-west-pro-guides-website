@@ -1,0 +1,27 @@
+---
+layout: page.njk
+permalink: fishing-reports.html
+title: Fishing Report - Key West Pro Guides
+description: The Key West Pro Guides team fishing report. What spot, what bait, how deep, how big, plus tarpon tips from our full-time Key West guides.
+h1: The Key West Pro Guides Team Fishing Report
+navKey: Fishing Reports
+crumbs:
+  - label: Fishing Reports
+---
+<section class="sec" style="padding-top:12px">
+  <div class="wrap">
+    <p style="font-size:20px;font-weight:700;color:var(--blue)">What Spot? – What Bait? – How Deep? – How Big!!</p>
+    <h2 id="fishing-talk" style="margin-top:32px">Fishing Talk</h2>
+    <div class="g4" style="margin-top:20px">
+      {% for p in (collections.posts | byKeyData("category", "Fishing Talk")) %}
+      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 50vw, 300px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.date | longDate }}</p></a>
+      {% endfor %}
+    </div>
+    <h2 id="reports" style="margin-top:56px">Fishing Reports</h2>
+    <div class="g3" style="margin-top:20px">
+      {% for p in (collections.posts | byKeyData("category", "Fishing Report")) %}
+      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 100vw, 400px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.date | longDate }}</p></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

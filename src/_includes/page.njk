@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+{% if heroImg %}
+<section class="pbanner short">
+  {% heroimg heroImg, heroAlt or h1, "100vw", heroCls %}
+  <div class="cap"><div class="wrap">
+    {% if crumbs %}<p class="crumbs"><a href="/">Home</a>{% for c in crumbs %} / {% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</p>{% endif %}
+    <h1>{{ h1 }}</h1>
+  </div></div>
+</section>
+{% else %}
+<section class="sec" style="padding-bottom:0">
+  <div class="narrow">
+    {% if crumbs %}<p class="crumbs" style="color:var(--ink)"><a href="/">Home</a>{% for c in crumbs %} / {% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</p>{% endif %}
+    <h1>{{ h1 }}</h1>
+  </div>
+</section>
+{% endif %}
+{{ content | safe }}
+{% if not hideCta %}
+<section class="sec-sm tint">
+  <div class="narrow center">
+    <h2 style="font-size:30px">Ready to Fish Key West?</h2>
+    <a class="btn" href="{{ site.booking.url }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+    <p class="or" style="font-size:16px;margin-top:12px">or call <a href="{{ site.phoneHref }}"><strong>{{ site.phone }}</strong></a></p>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ page.url | abs(site) }}">
+{% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ ogTitle or title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ page.url | abs(site) }}">
+{% set ogSrc = ogImage or "home/banner-desktop.jpg" %}<meta property="og:image" content="{{ site.url }}{% imgurl ogSrc, 1200 %}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/spectral-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{ inlineCss | safe }}</style>
+{% include "tracking-head.njk" %}
+{% include "schema.njk" %}
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="strip">
+  <div class="wrap">
+    <a href="/fishing-info/testimonials"><span class="long">{{ site.rating.line }}</span><span class="short">{{ site.rating.lineShort }}</span></a>
+    <a class="call-desk" href="{{ site.phoneHref }}">Call {{ site.phone }}</a>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Key West Pro Guides home">{% logo false %}</a>
+    <nav class="nav" aria-label="Main menu">
+      <ul>
+      {% for item in nav %}
+        {% set kids = trips if item.children == "trips" else (captains if item.children == "captains" else item.items) %}
+        {% set isOn = (page.url | clean) == item.url or ((item.url != "/") and ((page.url | clean).indexOf(item.url + "/") == 0)) or (navKey == item.label) %}
+        {% if kids %}
+        <li class="{{ 'on' if isOn }}">
+          <a class="top" href="{{ item.url }}"{% if isOn %} aria-current="page"{% endif %}>{{ item.label }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="sub">
+            {% if item.children == "trips" %}<li><a href="/our-trips">All Trips</a></li>{% for k in trips %}<li><a href="{{ k.url }}">{{ k.navLabel or k.name }}</a></li>{% endfor %}
+            {% elif item.children == "captains" %}<li><a href="/our-guides">All Guides</a></li>{% for k in captains %}<li><a href="{{ k.url }}">{{ k.name }}</a></li>{% endfor %}
+            {% else %}{% for k in kids %}<li><a href="{{ k.url }}">{{ k.label }}</a></li>{% endfor %}{% endif %}
+          </ul>
+        </li>
+        {% else %}
+        <li><a href="{{ item.url }}"{% if isOn %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </nav>
+    <a class="call" href="{{ site.phoneHref }}" aria-label="Call {{ site.phone }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#040A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    <a class="btn" href="{{ bookUrl or site.booking.url }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#040A2A" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile menu">
+    <ul>
+    {% for item in nav %}
+      <li><a href="{{ item.url }}">{{ item.label }}</a>
+      {% if item.children == "trips" %}<ul class="sub">{% for k in trips %}<li><a href="{{ k.url }}">{{ k.navLabel or k.name }}</a></li>{% endfor %}</ul>
+      {% elif item.children == "captains" %}<ul class="sub">{% for k in captains %}<li><a href="{{ k.url }}">{{ k.name }}</a></li>{% endfor %}</ul>
+      {% elif item.items %}<ul class="sub">{% for k in item.items %}{% if not loop.first %}<li><a href="{{ k.url }}">{{ k.label }}</a></li>{% endif %}{% endfor %}</ul>{% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="top">
+      <a class="lg" href="/" aria-label="Key West Pro Guides home">{% logo true %}</a>
+      <div>
+        <p><a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">{{ site.address.street }}, {{ site.address.city }}, {{ site.address.region }} {{ site.address.zip }}</a></p>
+        <p><a href="{{ site.phoneHref }}"><strong>{{ site.phone }}</strong></a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+      <nav aria-label="Footer menu">
+        <a href="/our-trips">Our Trips</a><a href="/our-guides">Our Guides</a><a href="/fishing-info/rates">Rates</a><a href="/fishing-reports">Fishing Reports</a><a href="/fishing-info/testimonials">Reviews</a><a href="/contact-us">Contact</a>
+      </nav>
+      <a class="fb" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Key West Pro Guides on Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    </div>
+    <div class="bot">
+      <span>© {{ "now" | year }} Key West Pro Guides. All rights reserved.</span>
+      <a href="{{ site.credit.url }}" target="_blank" rel="noopener">{{ site.credit.label }}</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){var els=document.querySelectorAll('[data-src]');if(!els.length)return;function load(el){if(el.dataset.done)return;el.dataset.done=1;if(el.tagName==='IFRAME'){el.src=el.dataset.src;return;}var s=document.createElement('script');s.src=el.dataset.src;s.async=true;document.body.appendChild(s);}if(!('IntersectionObserver' in window)){els.forEach(load);return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load(e.target);io.unobserve(e.target);}});},{rootMargin:'400px'});els.forEach(function(el){io.observe(el);});})();
+(function(){var b=document.querySelector('.menu-btn'),m=document.getElementById('mnav');if(!b)return;b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');});})();
+</script>
+{{ footScript | safe }}
+</body>
+</html>

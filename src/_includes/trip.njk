@@ -1,0 +1,94 @@
+---
+layout: base.njk
+---
+{% set trip = trips | find("slug", tripSlug) %}
+<section class="pbanner">
+  {% heroimg heroImg, heroAlt, "100vw", heroCls %}
+  <div class="cap"><div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/our-trips">Our Trips</a> / {{ trip.name }}</p>
+    <h1>{{ trip.h1 }}</h1>
+  </div></div>
+</section>
+
+{{ content | safe }}
+
+{% if trip.rates %}
+<section class="sec" id="rates">
+  <div class="wrap">
+    <p class="eyebrow center">Trip details</p>
+    <h2 class="center">{{ ratesTitle or (trip.name + " Trips and Rates") }}</h2>
+    {% if trip.season %}<p class="center">Season: {{ trip.season }}</p>{% endif %}
+    <div class="g4" style="margin-top:28px">
+      {% for r in trip.rates %}<div class="rate"><p class="t">{{ r.t }}</p><p class="d">{{ r.d }}</p><p class="p">{{ r.p | money }}</p></div>{% endfor %}
+      <div class="rate hl"><p class="t">{{ tripinfo.fuel }}</p><p class="d" style="margin:4px 0 0">{{ tripinfo.fuelSub }}</p></div>
+    </div>
+    <div class="facts g3">
+      <div><p class="t">Boats and guests</p><p>{{ tripinfo.boats[trip.boatType] }}</p></div>
+      <div><p class="t">What's included</p><p>{{ tripinfo.included }}</p></div>
+      <div><p class="t">What to bring</p><ul>{% for b in tripinfo.bring %}<li>{{ b }}</li>{% endfor %}</ul></div>
+    </div>
+    <div class="cta">
+      <a class="btn" href="{{ trip.book }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+      <p class="or">or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a></p>
+    </div>
+  </div>
+</section>
+{% elif trip.callToBook %}
+<section class="sec tint" id="rates">
+  <div class="narrow center">
+    <h2>Plan Your Group Trip</h2>
+    <p><a class="btn" href="{{ site.phoneHref }}">Call {{ site.phone }}</a></p>
+    <p class="or" style="font-size:16px">or <a href="/contact-us">send us your group details</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="sec tint">
+  <div class="wrap">
+    <h2 class="center">What Anglers Say About {{ reviewsAbout or trip.name }}</h2>
+    <div class="g2" style="margin-top:24px">
+      {% for i in [1, 2] %}
+      <figure class="rev">
+        <div class="dots sm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <blockquote><p><span class="ph">[Tripadvisor review that mentions {{ trip.name | lower }}, word for word]</span></p></blockquote>
+        <figcaption><span class="ph">[Name]</span> · <span class="ph">[Month Year]</span> · Tripadvisor</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <p class="center" style="margin:28px 0 0"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read all {{ site.rating.count }} reviews on Tripadvisor</strong></a></p>
+  </div>
+</section>
+
+{% if trip.guides %}
+<section class="sec">
+  <div class="wrap">
+    <h2>Your {{ guidesLabel or trip.name | replace(" Fishing", "") }} Guides</h2>
+    <div class="g3" style="margin-top:24px">
+      {% for c in (captains | inList("slug", trip.guides)) %}
+      <a class="guide" href="{{ c.url }}">{% img c.headshot, c.headshotAlt, "84px", "" %}<span><b>{{ c.name }}</b><span>{{ c.boat }}</span></span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set faqList = faqs or trip.faqs %}
+{% if faqList %}
+<section class="sec" style="padding-top:0">
+  <div class="narrow">
+    <h2>{{ faqTitle or (trip.name + " FAQ") }}</h2>
+    {% for f in faqList %}
+    <details{% if loop.first %} open{% endif %}><summary>{{ f.q }}</summary>{% if f.a %}<p>{{ f.a | safe }}</p>{% else %}<p><span class="ph">[Answer from FAQ rebuild]</span></p>{% endif %}</details>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="sec-sm tint">
+  <div class="wrap">
+    <h2 style="font-size:24px">More Key West Fishing Trips</h2>
+    <div class="links-row">
+      {% for t in trips %}{% if t.slug != trip.slug %}<a href="{{ t.url }}">{{ t.name }}</a>{% endif %}{% endfor %}<a href="/our-trips">All trips</a>
+    </div>
+  </div>
+</section>

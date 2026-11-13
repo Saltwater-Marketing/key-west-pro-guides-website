@@ -1,0 +1,33 @@
+<section class="sec" id="reviews" style="padding-bottom:0">
+  <div class="wrap center">
+    <p class="eyebrow">A Key West Legacy of Excellence</p>
+    <div class="ta-logo">Official Tripadvisor logo</div>
+    <div class="dots" role="img" aria-label="Rated 4.9 of 5 on Tripadvisor"><i></i><i></i><i></i><i></i><i></i><b>{{ site.rating.value }} of 5</b></div>
+    <h2 style="margin-bottom:36px">Rated {{ site.rating.value }} by {{ site.rating.count }} Anglers on Tripadvisor</h2>
+    <div class="g4" style="margin-bottom:36px">
+      <div class="stat"><p class="n">{{ site.rating.value }}</p><p class="l">{{ site.rating.count }} Tripadvisor reviews</p></div>
+      <div class="stat"><p class="n">{{ site.rating.since }}</p><p class="l">Fishing Key West since</p></div>
+      <div class="stat"><p class="n">{{ site.rating.captains }}</p><p class="l">Full time captains</p></div>
+      <div class="stat"><p class="n">{{ site.rating.facebookFollowers }}</p><p class="l">Facebook followers</p></div>
+    </div>
+    <div class="g3">
+      {% for r in featuredReviews %}
+      <figure class="rev">
+        <div class="dots sm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <blockquote><p>{{ r.text }}{% if r.placeholder %} <span class="ph">[{{ r.placeholder }}]</span>{% endif %}</p></blockquote>
+        <figcaption>{% if r.name %}{{ r.name }}{% else %}<span class="ph">[Name]</span>{% endif %} · {{ r.date }} · Tripadvisor{% if r.captain %} · {{ r.captain }}{% endif %}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <p style="margin:32px 0 56px"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read all {{ site.rating.count }} reviews on Tripadvisor</strong></a></p>
+  </div>
+  <div class="seen">
+    <p class="eyebrow" style="color:var(--navy);margin-bottom:20px">As Seen On</p>
+    <div class="row">
+      <div class="logo-slot">ESPN logo</div>
+      <div class="logo-slot">ESPN2 logo</div>
+      <div class="logo-slot">River Monsters / Animal Planet logo</div>
+      <div class="logo-slot">George Poveromo’s World of Saltwater Fishing logo</div>
+    </div>
+  </div>
+</section>

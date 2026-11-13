@@ -1,0 +1,15 @@
+{
+  "boats": {
+    "backcountry": "24 ft bay boats (Yellowfin, Pathfinder, Skeeter). 1 to 4 guests.",
+    "light": "29 to 34 ft center consoles (Yellowfin, Conch, Contender, Andros). 1 to 4 guests."
+  },
+  "included": "All rates include all necessary instruction, fuel, licenses, tackle, rods, bait and a cooler with ice and bottled water onboard.",
+  "bring": [
+    "Sun protective clothing, sunscreen, a hat, etc",
+    "You are welcome to bring anything to eat or drink onboard with the exception of hard liquor. Our warm tropical sun, motion of the water and hard liquor just don’t blend well! Beer however is like plasma in Key West… you must have it!"
+  ],
+  "bringSource": "Copied word for word from each trip's VallyPro listing (What to Bring). Paul to confirm per trip.",
+  "fuel": "Fuel included",
+  "fuelSub": "No fuel surcharge, no sales tax",
+  "homeOrder": ["backcountry-fishing", "wreck-fishing", "offshore-fishing", "shark-fishing", "marquesas-atoll-fishing", "specialty-trips", "group-fishing", "family-fishing"]
+}
