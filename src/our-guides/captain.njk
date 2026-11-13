@@ -60,7 +60,7 @@ eleventyComputed:
       <figure class="rev">
         {% if r.title %}<h3>{{ r.title }}</h3>{% endif %}
         <blockquote>{% for p in r.paras %}<p>{{ p }}</p>{% endfor %}</blockquote>
-        <figcaption>{% if r.sig %}{{ r.sig }}{% else %}<span class="ph">[Name]</span>{% endif %} · <span class="ph">[Month Year]</span> · <span class="ph">[Source]</span></figcaption>
+        {% if r.sig %}<figcaption>{{ r.sig }}</figcaption>{% endif %}
       </figure>
       {% endfor %}
     </div>

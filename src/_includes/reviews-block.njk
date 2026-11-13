@@ -12,15 +12,18 @@
       <div class="stat"><p class="n">{{ site.rating.captains }}</p><p class="l">Full time captains</p></div>
       <div class="stat"><p class="n">{{ site.rating.facebookFollowers }}</p><p class="l">Facebook followers</p></div>
     </div>
+    {% set readyReviews = featuredReviews | rejectattr("placeholder") | selectattr("text") %}
+    {% if readyReviews | length %}
     <div class="g3">
-      {% for r in featuredReviews %}
+      {% for r in readyReviews %}
       <figure class="rev">
         <div class="dots sm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <blockquote><p>{{ r.text }}{% if r.placeholder %} <span class="ph">[{{ r.placeholder }}]</span>{% endif %}</p></blockquote>
-        <figcaption>{% if r.name %}{{ r.name }}{% else %}<span class="ph">[Name]</span>{% endif %} · {{ r.date }} · Tripadvisor{% if r.captain %} · {{ r.captain }}{% endif %}</figcaption>
+        <blockquote><p>{{ r.text }}</p></blockquote>
+        <figcaption>{% if r.name %}{{ r.name }} · {% endif %}{{ r.date }} · Tripadvisor{% if r.captain %} · {{ r.captain }}{% endif %}</figcaption>
       </figure>
       {% endfor %}
     </div>
+    {% endif %}
     <p style="margin:32px 0 56px"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read all {{ site.rating.count }} reviews on Tripadvisor</strong></a></p>
   </div>
   <div class="seen">
