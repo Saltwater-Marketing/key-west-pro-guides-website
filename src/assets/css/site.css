@@ -6,8 +6,9 @@
 
 :root{
   --navy:#05347A;      /* logo navy (headings, top strip, footer) */
-  --blue:#0078BE;      /* ocean blue from the logo, between its navy #003078 and cyan #00B8E0 (links, eyebrows, Book Now button) */
+  --blue:#0078BE;      /* ocean blue from the logo, between its navy #003078 and cyan #00B8E0 (links, eyebrows) */
   --cyan:#00B4E4;      /* logo cyan (small accents: underlines, dividers, hover) */
+  --cta:#D9480F;       /* sunset orange: Book Now buttons only, the warm complement to the logo blues */
   --tint:#E8F6FB;      /* light section background */
   --line:#C9D6E3;
   --ink:#1A1A1A;
@@ -51,8 +52,8 @@ ul{margin:0 0 16px;padding-left:22px}
 .r43{aspect-ratio:4/3}.r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}
 
 /* Buttons: one booking label sitewide ("Book Now") */
-.btn{display:inline-block;background:var(--blue);color:#fff;font-family:var(--body);font-weight:700;font-size:18px;padding:15px 40px;border-radius:6px;text-decoration:none;text-align:center;border:0;cursor:pointer}
-.btn:hover{background:var(--navy);color:#fff}
+.btn{display:inline-block;background:var(--cta);color:#fff;font-family:var(--body);font-weight:700;font-size:18px;padding:15px 40px;border-radius:6px;text-decoration:none;text-align:center;border:0;cursor:pointer}
+.btn:hover{background:#B83C0B;color:#fff}
 .btn-line{display:inline-block;border:2px solid var(--navy);color:var(--navy);font-weight:700;font-size:16px;padding:12px 28px;border-radius:6px;text-decoration:none}
 .btn-line:hover{background:var(--navy);color:#fff}
 .cta{text-align:center;margin-top:40px}
