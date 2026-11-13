@@ -25,10 +25,18 @@ ogImage: home/banner-desktop.jpg
     <h2 class="center" style="margin-bottom:40px">Choose Your Key West Fishing Trip</h2>
     <div class="g3 trips">
       {% for t in (trips | inList("slug", tripinfo.homeOrder)) %}
-      {% set from = t.rates | minPrice %}
-      <a class="card" href="{{ t.url }}">
-        {% img t.card.img, t.card.alt, "(max-width: 700px) 100vw, (max-width: 1023px) 50vw, 400px", "" %}
-        <span class="in"><h3>{{ t.name }}</h3>{% if from %}<span class="from">From {{ from | money }}</span>{% endif %}<p>{{ t.card.blurb }}</p><span class="more">See the trip →</span></span>
+      {% set from = t.rates | minPrice %}{% set hrs = t.rates | hourRange %}
+      <a class="tcard" href="{{ t.url }}">
+        <span class="tc-media">
+          {% img t.card.img, t.card.alt, "(max-width: 700px) 100vw, (max-width: 1023px) 50vw, 400px", "" %}
+          {% if from %}<span class="tc-price">From <b>{{ from | money }}</b></span>{% endif %}
+        </span>
+        <span class="tc-body">
+          <h3 class="tc-title">{{ t.name }}</h3>
+          {% if hrs %}<span class="tc-meta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{{ hrs }}</span>{% endif %}
+          <span class="tc-blurb">{{ t.card.blurb }}</span>
+          <span class="tc-foot">See trip details<span class="tc-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </span>
       </a>
       {% endfor %}
     </div>
@@ -94,9 +102,10 @@ ogImage: home/banner-desktop.jpg
 
 <section class="sponsors">
   <div class="wrap">
-    <h2 style="font-size:22px;margin-bottom:18px">Our Faithful &amp; Generous Sponsors</h2>
-    <div class="row">
-      {% for s in sponsors %}{% img s.src, s.name, "120px", "" %}{% endfor %}
+    <p class="eyebrow center">Proudly Supported By</p>
+    <h2 class="center">Our Faithful &amp; Generous Sponsors</h2>
+    <div class="sp-grid">
+      {% for s in sponsors %}<span class="sp">{% img s.src, s.name, "(max-width: 700px) 30vw, 180px", "" %}</span>{% endfor %}
     </div>
   </div>
 </section>
