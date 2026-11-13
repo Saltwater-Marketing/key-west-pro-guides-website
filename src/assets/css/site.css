@@ -48,6 +48,8 @@ ul{margin:0 0 16px;padding-left:22px}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
+.two>picture{align-self:stretch;display:block}
+.two>picture>img.photo{position:sticky;top:130px}
 .photo{width:100%;object-fit:cover;border-radius:12px}
 .r43{aspect-ratio:4/3}.r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}
 
@@ -335,6 +337,7 @@ details p{margin:10px 0 0}
   .strip .short{display:inline}
   .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .g2,.g3,.two,.bio{grid-template-columns:minmax(0,1fr)}
+  .two>picture>img.photo{position:static}
   .g3.trips{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
   .gal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .fb-box{flex-direction:column;align-items:stretch;text-align:left}

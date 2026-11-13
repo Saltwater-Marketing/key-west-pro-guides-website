@@ -1,6 +1,30 @@
 {
  "backcountry-fishing": [
   {
+   "src": "new/mutton-snapper-duo.jpg",
+   "alt": "Two anglers holding a mutton snapper over the Key West flats"
+  },
+  {
+   "src": "new/flats-hooked-up.jpg",
+   "alt": "Angler hooked up on the Key West flats"
+  },
+  {
+   "src": "new/mutton-snapper-woman.jpg",
+   "alt": "Angler holding a mutton snapper"
+  },
+  {
+   "src": "new/yellow-jack-bow.jpg",
+   "alt": "Angler holding a yellow jack on the bow of the boat"
+  },
+  {
+   "src": "new/mutton-snapper-hoodie.jpg",
+   "alt": "Smiling angler with a mutton snapper"
+  },
+  {
+   "src": "new/barracuda-crew.jpg",
+   "alt": "Anglers holding a big barracuda on a center console"
+  },
+  {
    "src": "gallery/backcountry-fishing/backcountry-01.jpg",
    "alt": "Angler holding a barracuda caught with Key West Pro Guides"
   },
@@ -62,6 +86,10 @@
   }
  ],
  "tarpon-fishing": [
+  {
+   "src": "new/sunset-flats.jpg",
+   "alt": "Sunset over the Key West flats"
+  },
   {
    "src": "gallery/tarpon-fishing/tarpon-01.jpg",
    "alt": "Angler holding a tarpon caught with Key West Pro Guides"
@@ -128,6 +156,18 @@
   }
  ],
  "wreck-fishing": [
+  {
+   "src": "new/permit-wreck.jpg",
+   "alt": "Angler holding a permit caught on a Key West wreck"
+  },
+  {
+   "src": "new/red-grouper.jpg",
+   "alt": "Angler holding a red grouper"
+  },
+  {
+   "src": "new/african-pompano.jpg",
+   "alt": "Angler holding an African pompano"
+  },
   {
    "src": "gallery/wreck-fishing/wreck-01.jpg",
    "alt": "Angler holding a red snapper caught with Key West Pro Guides"
@@ -202,6 +242,18 @@
   }
  ],
  "offshore-fishing": [
+  {
+   "src": "new/sailfish-swimming.jpg",
+   "alt": "Sailfish swimming beside the boat"
+  },
+  {
+   "src": "new/sailfish-leader.jpg",
+   "alt": "Sailfish leadered boatside before release"
+  },
+  {
+   "src": "new/african-pompano.jpg",
+   "alt": "Angler holding an African pompano offshore"
+  },
   {
    "src": "gallery/offshore-fishing/offshore-01.jpg",
    "alt": "Angler holding a mahi-mahi caught with Key West Pro Guides"
@@ -315,6 +367,10 @@
  ],
  "marquesas-atoll-fishing": [
   {
+   "src": "new/flats-hooked-up.jpg",
+   "alt": "Angler hooked up on clear shallow flats"
+  },
+  {
    "src": "gallery/marquesas-atoll-fishing/marquesas-atoll-01.jpg",
    "alt": "Angler casting from the bow on clear shallow flats"
   },
@@ -348,6 +404,26 @@
   }
  ],
  "family-fishing": [
+  {
+   "src": "new/dad-son-bonefish.jpg",
+   "alt": "Father and son holding a bonefish"
+  },
+  {
+   "src": "new/kid-hooked-up.jpg",
+   "alt": "Boy fighting a fish with his guide"
+  },
+  {
+   "src": "new/kid-with-fish.jpg",
+   "alt": "Young angler showing off his catch"
+  },
+  {
+   "src": "new/girl-with-fish.jpg",
+   "alt": "Young angler holding up her catch"
+  },
+  {
+   "src": "new/flats-hooked-up.jpg",
+   "alt": "Angler hooked up as a young angler watches"
+  },
   {
    "src": "gallery/family-fishing/family-01.jpg",
    "alt": "Family with their catch on a Key West Pro Guides fishing trip"
@@ -406,6 +482,10 @@
   }
  ],
  "group-fishing": [
+  {
+   "src": "new/barracuda-crew.jpg",
+   "alt": "Group of anglers with a big barracuda"
+  },
   {
    "src": "gallery/group-fishing/group-01.jpg",
    "alt": "Group of anglers with their catch on a Key West Pro Guides trip"
