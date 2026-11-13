@@ -4,14 +4,14 @@
     "url": "/"
   },
   {
-    "label": "Our Guides",
-    "url": "/our-guides",
-    "children": "captains"
-  },
-  {
     "label": "Our Trips",
     "url": "/our-trips",
     "children": "trips"
+  },
+  {
+    "label": "Our Guides",
+    "url": "/our-guides",
+    "children": "captains"
   },
   {
     "label": "Fishing Info",
