@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 {% set trip = trips | find("slug", tripSlug) %}
-<section class="pbanner has-facts">
+<section class="pbanner has-facts" style="--hpos:{{ heroPos or '50%' }}">
   {% heroimg heroImg, heroAlt, "100vw", heroCls %}
   <div class="cap"><div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / <a href="/our-trips">Our Trips</a> / {{ trip.name }}</p>
