@@ -12,6 +12,35 @@ layout: base.njk
 
 {{ content | safe }}
 
+{% set gal = galleries[trip.slug] %}
+{% if gal %}
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <p class="eyebrow center">Real trips, real catches</p>
+    <h2 class="center">{{ trip.name | replace(" Fishing", "") }} Fishing Gallery</h2>
+    <div class="gal-grid" style="margin-top:28px">
+      {% for g in gal %}<button type="button" class="gal-item" data-full="{% imgurl g.src, 1600 %}" data-alt="{{ g.alt }}" aria-label="Open photo {{ loop.index }} of {{ gal.length }}: {{ g.alt }}">{% img g.src, g.alt, "(max-width: 700px) 50vw, (max-width: 1023px) 33vw, 290px", "" %}</button>{% endfor %}
+    </div>
+  </div>
+</section>
+<dialog class="lb" aria-label="Photo viewer">
+  <img alt="">
+  <p class="lb-cap"></p>
+  <button type="button" class="lb-x" aria-label="Close">&times;</button>
+  <button type="button" class="lb-prev" aria-label="Previous photo">&#8249;</button>
+  <button type="button" class="lb-next" aria-label="Next photo">&#8250;</button>
+</dialog>
+<script>
+(function(){var items=[].slice.call(document.querySelectorAll('.gal-item')),d=document.querySelector('dialog.lb');if(!items.length||!d||!d.showModal)return;var im=d.querySelector('img'),cap=d.querySelector('.lb-cap'),i=0,x0=null;
+function show(n){i=(n+items.length)%items.length;im.src=items[i].dataset.full;im.alt=items[i].dataset.alt;cap.textContent=(i+1)+' / '+items.length;}
+items.forEach(function(b,n){b.addEventListener('click',function(){show(n);d.showModal();});});
+d.querySelector('.lb-x').onclick=function(){d.close();};d.querySelector('.lb-prev').onclick=function(){show(i-1);};d.querySelector('.lb-next').onclick=function(){show(i+1);};
+d.addEventListener('click',function(e){if(e.target===d)d.close();});
+d.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+d.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});d.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);x0=null;});})();
+</script>
+{% endif %}
+
 {% if trip.rates %}
 <section class="sec" id="rates">
   <div class="wrap">
