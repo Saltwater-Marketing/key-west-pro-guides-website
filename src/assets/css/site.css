@@ -180,7 +180,15 @@ dialog.lb img{max-width:min(92vw,1400px);max-height:84vh;width:auto;height:auto;
 .lb-x:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.28)}
 
 /* Reviews */
-.ta-logo{display:block;width:150px;height:auto;margin:0 auto 16px}
+.ta-badge{display:inline-flex;align-items:center;gap:28px;background:#fff;border:1px solid #DCE6EF;border-radius:18px;padding:18px 32px 18px 18px;margin:8px auto 24px;text-decoration:none;color:var(--navy);box-shadow:0 2px 4px rgba(4,10,42,.05),0 16px 36px -18px rgba(4,10,42,.3);transition:transform .25s,box-shadow .25s}
+.ta-badge:hover{transform:translateY(-3px);color:var(--navy);box-shadow:0 2px 4px rgba(4,10,42,.06),0 22px 44px -18px rgba(4,10,42,.38)}
+.ta-badge picture{display:block}
+.ta-logo{display:block;width:260px;height:auto;border-radius:10px}
+.ta-score{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left}
+.ta-score b{font-family:var(--head);font-size:56px;line-height:1;color:var(--navy)}
+.ta-score .dots{margin:0;gap:5px}
+.ta-score .dots i{width:20px;height:20px}
+.ta-score small{font-size:16px;font-weight:700;color:var(--ta-dark)}
 .dots{display:flex;gap:6px;justify-content:center;align-items:center;margin-bottom:10px}
 .dots i{width:18px;height:18px;border-radius:50%;background:var(--ta);display:inline-block}
 .dots b{color:var(--ta-dark);margin-left:8px}
@@ -376,7 +384,11 @@ details p{margin:10px 0 0}
   .stat .l{font-size:15px}
   .seen .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 16px}
   .seen img{height:40px;max-width:85%;margin:0 auto}
-  .ta-logo{width:120px}
+  .ta-badge{gap:16px;padding:12px 18px 12px 12px}
+  .ta-logo{width:150px}
+  .ta-score b{font-size:40px}
+  .ta-score .dots i{width:14px;height:14px}
+  .ta-score small{font-size:14px}
   .btn{display:block}
   .hdr .btn{display:inline-block}
   .gal{grid-template-columns:repeat(2,minmax(0,1fr))}

@@ -104,7 +104,10 @@ d.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:t
 
 <section class="sec-sm tint">
   <div class="wrap center">
-    <div class="dots" role="img" aria-label="Rated {{ site.rating.value }} of 5 on Tripadvisor"><i></i><i></i><i></i><i></i><i></i><b>{{ site.rating.value }} of 5</b></div>
+    <a class="ta-badge" href="{{ site.tripadvisor }}" target="_blank" rel="noopener" aria-label="Rated {{ site.rating.value }} of 5 from {{ site.rating.count }} reviews on Tripadvisor">
+      {% img "logo/tripadvisor.png", "Tripadvisor", "(max-width: 700px) 200px, 280px", "ta-logo" %}
+      <span class="ta-score"><b>{{ site.rating.value }}</b><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><small>{{ site.rating.count }} reviews</small></span>
+    </a>
     <h2 style="font-size:28px">Rated {{ site.rating.value }} by {{ site.rating.count }} Anglers on Tripadvisor</h2>
     <p style="margin:0"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read the reviews on Tripadvisor</strong></a></p>
   </div>
