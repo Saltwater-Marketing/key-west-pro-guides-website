@@ -2,13 +2,43 @@
 layout: base.njk
 ---
 {% set trip = trips | find("slug", tripSlug) %}
-<section class="pbanner">
+<section class="pbanner has-facts">
   {% heroimg heroImg, heroAlt, "100vw", heroCls %}
   <div class="cap"><div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / <a href="/our-trips">Our Trips</a> / {{ trip.name }}</p>
     <h1>{{ trip.h1 }}</h1>
   </div></div>
 </section>
+
+{% set from = trip.rates | minPrice %}{% set hrs = trip.rates | hourRange %}
+{% set guests = (tripinfo.boats[trip.boatType] | default("")).split(". ") | last | replace(".", "") if trip.boatType else "" %}
+<section class="facts-bar">
+  <div class="wrap">
+    <div class="fb-box">
+      <dl class="fb-list">
+        {% if from %}<div><dt>Price</dt><dd>From {{ from | money }}</dd></div>{% else %}<div><dt>Price</dt><dd>Custom quote</dd></div>{% endif %}
+        {% if hrs %}<div><dt>Trip length</dt><dd>{{ hrs | replace(" hour trips", " hours") | replace("-hour trips", " hours") }}</dd></div>{% endif %}
+        {% if guests %}<div><dt>Guests</dt><dd>{{ guests }} per boat</dd></div>{% endif %}
+        {% if trip.season %}<div><dt>Season</dt><dd>{{ trip.season }}</dd></div>{% endif %}
+        <div><dt>Leaves from</dt><dd>{{ site.address.marina }}</dd></div>
+      </dl>
+      <div class="fb-cta">
+        {% if trip.book %}<a class="btn" href="{{ trip.book }}" target="_blank" rel="noopener">{{ site.booking.label }}</a>
+        <p class="or">or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a></p>
+        {% else %}<p class="fb-call">Call <a href="{{ site.phoneHref }}">{{ site.phone }}</a></p>{% endif %}
+      </div>
+    </div>
+    <nav class="jump" aria-label="On this page">
+      <a href="#about">About the trip</a>
+      {% if galleries[trip.slug] %}<a href="#gallery">Gallery</a>{% endif %}
+      <a href="#rates">{% if trip.rates %}Rates{% else %}Plan your trip{% endif %}</a>
+      {% if trip.guides %}<a href="#guides">Guides</a>{% endif %}
+      {% if (faqs or trip.faqs or []) | selectattr("a") | length %}<a href="#faq">FAQ</a>{% endif %}
+    </nav>
+  </div>
+</section>
+
+<div id="about"></div>
 
 {{ content | safe }}
 
@@ -72,24 +102,16 @@ d.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:t
 </section>
 {% endif %}
 
-<section class="sec tint">
-  <div class="wrap">
-    <h2 class="center">What Anglers Say About {{ reviewsAbout or trip.name }}</h2>
-    <div class="g2" style="margin-top:24px">
-      {% for i in [1, 2] %}
-      <figure class="rev">
-        <div class="dots sm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <blockquote><p><span class="ph">[Tripadvisor review that mentions {{ trip.name | lower }}, word for word]</span></p></blockquote>
-        <figcaption><span class="ph">[Name]</span> · <span class="ph">[Month Year]</span> · Tripadvisor</figcaption>
-      </figure>
-      {% endfor %}
-    </div>
-    <p class="center" style="margin:28px 0 0"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read all {{ site.rating.count }} reviews on Tripadvisor</strong></a></p>
+<section class="sec-sm tint">
+  <div class="wrap center">
+    <div class="dots" role="img" aria-label="Rated {{ site.rating.value }} of 5 on Tripadvisor"><i></i><i></i><i></i><i></i><i></i><b>{{ site.rating.value }} of 5</b></div>
+    <h2 style="font-size:28px">Rated {{ site.rating.value }} by {{ site.rating.count }} Anglers on Tripadvisor</h2>
+    <p style="margin:0"><a href="{{ site.tripadvisor }}" target="_blank" rel="noopener"><strong>Read the reviews on Tripadvisor</strong></a></p>
   </div>
 </section>
 
 {% if trip.guides %}
-<section class="sec">
+<section class="sec" id="guides">
   <div class="wrap">
     <h2>Your {{ guidesLabel or trip.name | replace(" Fishing", "") }} Guides</h2>
     <div class="g3" style="margin-top:24px">
@@ -101,23 +123,29 @@ d.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:t
 </section>
 {% endif %}
 
-{% set faqList = faqs or trip.faqs %}
-{% if faqList %}
-<section class="sec" style="padding-top:0">
+{% set faqList = (faqs or trip.faqs or []) | selectattr("a") %}
+{% if faqList | length %}
+<section class="sec" style="padding-top:0" id="faq">
   <div class="narrow">
     <h2>{{ faqTitle or (trip.name + " FAQ") }}</h2>
     {% for f in faqList %}
-    <details{% if loop.first %} open{% endif %}><summary>{{ f.q }}</summary>{% if f.a %}<p>{{ f.a | safe }}</p>{% else %}<p><span class="ph">[Answer from FAQ rebuild]</span></p>{% endif %}</details>
+    <details{% if loop.first %} open{% endif %}><summary>{{ f.q }}</summary><p>{{ f.a | safe }}</p></details>
     {% endfor %}
   </div>
 </section>
 {% endif %}
 
-<section class="sec-sm tint">
+<section class="sec tint">
   <div class="wrap">
-    <h2 style="font-size:24px">More Key West Fishing Trips</h2>
-    <div class="links-row">
-      {% for t in trips %}{% if t.slug != trip.slug %}<a href="{{ t.url }}">{{ t.name }}</a>{% endif %}{% endfor %}<a href="/our-trips">All trips</a>
+    <h2 class="center">More Key West Fishing Trips</h2>
+    <div class="more-trips">
+      {% for t in (trips | inList("slug", tripinfo.homeOrder)) %}{% if t.slug != trip.slug %}<a class="mt" href="{{ t.url }}">{% img t.card.img, t.card.alt, "(max-width: 700px) 50vw, 280px", "" %}<span>{{ t.name }}</span></a>{% endif %}{% endfor %}
     </div>
+    <p class="center" style="margin:24px 0 0"><a href="/our-trips"><strong>See all trips</strong></a></p>
   </div>
 </section>
+
+{% set sOffers = [] %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TouristTrip","name":{{ trip.h1 | json | safe }},"description":{{ description | json | safe }},"url":"{{ page.url | abs(site) }}","touristType":"Sport fishing","provider":{"@type":"LocalBusiness","name":{{ site.name | json | safe }},"url":"{{ site.url }}/","telephone":"{{ site.phone }}"}{% if trip.rates %},"offers":[{% for r in trip.rates %}{% if not loop.first %},{% endif %}{"@type":"Offer","name":{{ (trip.name + " – " + r.t + " (" + r.d + ")") | json | safe }},"price":"{{ r.p }}","priceCurrency":"USD","url":{{ trip.book | json | safe }}}{% endfor %}]{% endif %}}
+</script>
