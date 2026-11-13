@@ -45,6 +45,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("abs", (url, site) => site.url + clean(url));
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
+  eleventyConfig.addFilter("minPrice", (rates) => { const p = (rates || []).map((x) => Number(x.p)).filter((n) => n > 0); return p.length ? Math.min(...p) : null; });
   eleventyConfig.addFilter("money", (n) => "$" + Number(n).toLocaleString("en-US"));
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
   eleventyConfig.addFilter("longDate", (d) =>

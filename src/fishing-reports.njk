@@ -11,17 +11,23 @@ crumbs:
 <section class="sec" style="padding-top:12px">
   <div class="wrap">
     <p style="font-size:20px;font-weight:700;color:var(--blue)">What Spot? – What Bait? – How Deep? – How Big!!</p>
-    <h2 id="fishing-talk" style="margin-top:32px">Fishing Talk</h2>
+    <h2 id="reports" style="margin-top:32px">Latest Key West Fishing Reports</h2>
+    <div class="g3" style="margin-top:20px">
+      {% for p in (collections.posts | byKeyData("category", "Fishing Report")) %}
+      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 100vw, 400px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.date | longDate }}</p></a>
+      {% endfor %}
+    </div>
+    <h2 id="tarpon-tips" style="margin-top:56px">Key West Tarpon Fishing Tips</h2>
     <div class="g4" style="margin-top:20px">
       {% for p in (collections.posts | byKeyData("category", "Fishing Talk")) %}
       <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 50vw, 300px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.date | longDate }}</p></a>
       {% endfor %}
     </div>
-    <h2 id="reports" style="margin-top:56px">Fishing Reports</h2>
-    <div class="g3" style="margin-top:20px">
-      {% for p in (collections.posts | byKeyData("category", "Fishing Report")) %}
-      <a class="pcard" href="{{ p.url | clean }}">{% img p.data.ogImage, p.data.title, "(max-width: 1023px) 100vw, 400px", "" %}<h3>{{ p.data.title }}</h3><p>{{ p.date | longDate }}</p></a>
-      {% endfor %}
+    <div class="wx" style="margin-top:56px">
+      <h2 style="font-size:28px">Key West Weather</h2>
+      <div id="wx" data-src="https://weatherwidget.io/js/widget.min.js">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/24d56n81d78/key-west/?unit=us" data-label_1="KEY WEST" data-label_2="WEATHER" data-theme="original" target="_blank" rel="noopener">Key West weather forecast</a>
+      </div>
     </div>
   </div>
 </section>
